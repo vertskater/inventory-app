@@ -1,0 +1,24 @@
+<%- include('partials/header', {title: title}) %>
+<main>
+    <form action="<%= doc.id ? `/documents/edit/${doc.id}` : '/documents/new' %>" method="post">
+        <label for="title"> Document Title:
+            <input type="text" name="title" id="title" value="<%= doc.title ? doc.title : '' %>">
+        </label>
+        <label for="pages"> # Pages:
+            <input type="number" name="pages" id="pages" value="<%= doc.pages ? doc.pages : '' %>">
+        </label>
+        <label for="category"> Category:
+            <select name="category" id="category">
+                <% categories.forEach(cat => { %>
+                    <option value="<%= cat.id %>" <%= doc.category === cat.id ? 'selected' : '' %>><%= cat.name %></option>
+                <% }) %>
+            </select>
+        </label>
+        <label for="file"> File Link:
+            <input type="text" name="file" id="file" value="<%= doc.file ? doc.file : '' %>">
+        </label>
+        <button type="submit"><%= doc.title ? 'Save Changes' : 'Add Document' %></button>
+    </form>
+</main>
+
+<%- include('partials/footer') %>

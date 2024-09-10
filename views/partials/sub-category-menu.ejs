@@ -1,0 +1,7 @@
+<nav>
+    <ul class="sub-nav">
+        <% categories.forEach(cat => { %>
+            <li><a class="" href="/documents/<%= cat.name.replace(/ /g, '').toLowerCase() %>"> <%= cat.name %></a></li>
+        <% }) %>
+    </ul>
+</nav>

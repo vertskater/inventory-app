@@ -1,0 +1,36 @@
+<%- include('partials/header', {title: title}) %>
+<%- include('partials/sub-category-menu', {categories: categories}) %>
+
+<main>
+    <% docs.forEach(doc => { %>
+        <div class="document">
+            <div>
+                <h3>Name: <%= doc.title %></h3>
+                <span>Pages: <%= doc.pages %></span>
+                <span>Category: <%= doc.category %></span>
+            </div>
+            <div>
+                <button class="del" onclick="showOverlay(<%= doc.id %>)">Delete</button>
+                <a href="/documents/edit/<%= doc.id %>">
+                    <button class="edit">Edit</button>
+                </a>
+            </div>
+        </div>
+    <% }) %>
+</main>
+<script defer>
+  function showOverlay (id) {
+    const overlay = document.querySelector('#confirm-overlay')
+    const darkOverlay = document.querySelector('.dark-overlay')
+    overlay.dataset.id = id
+    overlay.classList.add('show')
+    darkOverlay.classList.add('show')
+    console.log(window.screenY)
+    darkOverlay.style.top = `${window.scrollY}px`
+    darkOverlay.style.bottom = `-${window.scrollY}px`
+    const btnYes = document.querySelector('#yes')
+    btnYes.href = `/documents/delete/${id}`
+  }
+</script>
+<%- include('partials/confirm-overlay') %>
+<%- include('partials/footer') %>
