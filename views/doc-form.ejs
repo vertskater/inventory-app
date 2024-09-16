@@ -1,5 +1,6 @@
 <%- include('partials/header', {title: title}) %>
 <main>
+    <%- include('partials/errors') %>
     <form action="<%= doc.id ? `/documents/edit/${doc.id}` : '/documents/new' %>" method="post">
         <label for="title"> Document Title:
             <input type="text" name="title" id="title" value="<%= doc.title ? doc.title : '' %>">

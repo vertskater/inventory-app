@@ -1,0 +1,9 @@
+<%- include('partials/header', {title: err.message}) %>
+
+<main class="error-page">
+    <h1>Sorry, we couldn't process your request</h1>
+    <p><%= err.message %></p>
+    <a href="/">Back to Dashboard</a>
+</main>
+
+<%- include('partials/footer') %>

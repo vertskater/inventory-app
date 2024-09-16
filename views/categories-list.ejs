@@ -1,22 +1,16 @@
 <%- include('partials/header', {title: title}) %>
-<%- include('partials/sub-category-menu', {categories: categories}) %>
 
 <main>
-    <% docs.forEach(doc => { %>
-        <div class="document">
+    <h1>Categories</h1>
+    <% categories.forEach(cat => { %>
+        <div class="category">
             <div>
-                <h3>Name: <%= doc.title %></h3>
-                <span>Pages: <%= doc.pages %></span>
-                <span>Category: <%= doc.category %></span>
+                <h3>Name: <%= cat.name %></h3>
+                <span>Description: <%= cat.description %></span>
             </div>
             <div>
-                <button class="download">
-                    <a href="<%= doc.file %>" target="_blank">Download</a>
-                </button>
-            </div>
-            <div>
-                <button class="del" onclick="showOverlay(<%= doc.id %>)">Delete</button>
-                <a href="/documents/edit/<%= doc.id %>">
+                <button class="del" onclick="showOverlay(<%= cat.id %>)">Delete</button>
+                <a href="/category/edit/<%= cat.id %>">
                     <button class="edit">Edit</button>
                 </a>
             </div>
@@ -34,8 +28,8 @@
     darkOverlay.style.top = `${window.scrollY}px`
     darkOverlay.style.bottom = `-${window.scrollY}px`
     const btnYes = document.querySelector('#yes')
-    btnYes.href = `/documents/delete/${id}`
+    btnYes.href = `/category/delete/${id}`
   }
 </script>
-<%- include('partials/confirm-overlay', {from: 'Document'}) %>
+<%- include('partials/confirm-overlay', {from: 'Category'}) %>
 <%- include('partials/footer') %>

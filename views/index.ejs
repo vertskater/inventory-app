@@ -1,5 +1,17 @@
 <%- include('partials/header', {title: title}) %>
-<main>
-    <h1>Hello test</h1>
+<h1 class="heading-dash">Dashboard</h1>
+<main class="dashboard-grid">
+    <section>
+        <a href="/documents">Documents</a>
+    </section>
+    <section>
+        <a href="/category/edit">Categories</a>
+    </section>
+    <section>
+        <a href="/documents/new">Add new document</a>
+    </section>
+    <section>
+        <a href="/category/new">Add new category</a>
+    </section>
 </main>
 <%- include('partials/footer') %>

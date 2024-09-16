@@ -68,6 +68,53 @@ button {
     transition: color 250ms ease-in-out, background-color 250ms ease-in-out;
 }
 
+button.download {
+    background-color: var(--office-color);
+}
+
+main.error-page {
+    padding: 3rem;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    h1 {
+        margin-bottom: 1rem;
+    }
+
+    a {
+        display: block;
+        margin: 1rem 0;
+        color: var(--secondary-red);
+    }
+}
+
+h1.heading-dash {
+    margin: 1rem 2rem;
+}
+
+main.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    text-align: center;
+
+    section {
+        a {
+            display: block;
+            padding: 2rem;
+            background-color: var(--light);
+            transition: background-color 250ms ease-in-out;
+
+            &:hover {
+                background-color: var(--shadow-color);
+            }
+        }
+    }
+}
+
 header {
     padding: 1rem;
     height: 80px;
@@ -107,7 +154,7 @@ header {
 main {
     padding: 1rem 2rem;
 
-    .document {
+    .document, .category {
         /*box-shadow: 0 8px 5px 2px var(--form-placeholder-color);*/
         margin: 1rem;
         padding: 1rem;
@@ -128,6 +175,10 @@ main {
             color: var(--shadow-color);
 
         }
+
+        div:nth-child(2) {
+            min-width: 100px;
+        }
     }
 }
 
@@ -143,7 +194,7 @@ form {
     display: flex;
     flex-direction: column;
 
-    input[type="text"], input[type="number"], select {
+    input[type="text"], input[type="number"], select, textarea {
         display: block;
         padding: .5rem;
         border-radius: 5px;
@@ -153,7 +204,7 @@ form {
         font-size: 1.1rem;
     }
 
-    button {
+    button, input[type="submit"] {
         max-width: 30%;
         align-self: end;
     }
@@ -173,11 +224,36 @@ nav {
         background-color: var(--light);
         border-radius: 10px;
         justify-content: space-evenly;
+        align-items: center;
 
         li {
             list-style-type: none;
             margin-right: 1rem;
         }
+
+        .add-category, .edit-category {
+            margin: 0;
+            /*width: 1rem;
+            height: 1rem;*/
+            padding: .8rem 0;
+            border-radius: 50%;
+            background-color: var(--shadow-color);
+            cursor: pointer;
+
+            a {
+                padding: .8rem 1rem;
+            }
+        }
+
+        .edit-category {
+            background-color: var(--light);
+            padding: 0;
+
+            svg {
+                height: 2rem;
+            }
+        }
+    ;
     }
 }
 
@@ -208,6 +284,15 @@ nav {
     &.show {
         display: block;
     }
+}
+
+ul.all-errors {
+    margin: 2rem;
+}
+
+li.error {
+    list-style-type: none;
+    color: var(--main-red);
 }
 
 footer {

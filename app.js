@@ -18,4 +18,11 @@ app.use("/", indexRouter);
 const documentsRouter = require("./routes/documentsRouter");
 app.use("/documents", documentsRouter);
 
+const categoryRouter = require("./routes/categoryRouter");
+app.use("/category", categoryRouter);
+
+app.use((err, req, res, next) => {
+  res.render("error", { err: err });
+});
+
 app.listen(PORT);

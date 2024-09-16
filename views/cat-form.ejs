@@ -1,0 +1,15 @@
+<%- include('partials/header', {title: title}) %>
+<main>
+    <%- include('partials/errors') %>
+    <form action="<%= category.id ? `/category/edit/${category.id}` : '/category/new' %>" method="post">
+        <label for="name">Category Name:
+            <input type="text" name="name" id="name" value="<%= category.name ? category.name : '' %>">
+        </label>
+        <label for="description">Category Description
+            <textarea name="description" id="description" cols="30"
+                      rows="10"><%= (category.description ? category.description.trim() : '') %></textarea>
+        </label>
+        <button type="submit"><%= category.id ? 'Edit Category' : 'Add Category' %></button>
+    </form>
+</main>
+<%- include('partials/footer') %>
